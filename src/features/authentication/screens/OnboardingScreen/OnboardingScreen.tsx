@@ -1,9 +1,11 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 
 import Screen from '@components/Screen/Screen';
 import Button from '@features/authentication/components/Button/Button';
 import images from '@utils/images';
+import Text from '@components/Text/Text';
+import fonts from '@utils/fonts';
 
 export default function OnboardingScreen() {
   return (
@@ -40,7 +42,6 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     width: '100%',
-    // backgroundColor: 'violete',
     justifyContent: 'space-evenly',
     height: '25%',
   },
@@ -53,12 +54,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
     textAlign: 'center',
-    fontFamily: 'poppins-bold',
+    fontFamily: fonts.HelveticaBold,
   },
   paragraph: {
-    fontFamily: 'poppins-light',
     color: '#00000060',
     textAlign: 'center',
-    fontSize: 15,
   },
 });
