@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
     fontFamily: fonts.HelveticaBold,
   },
   paragraph: {
-    color: '#00000060',
     textAlign: 'center',
   },
 });
