@@ -4,7 +4,7 @@ import {Image, StyleSheet, View} from 'react-native';
 import Screen from '@components/Screen/Screen';
 import Button from '@features/authentication/components/Button/Button';
 import images from '@utils/images';
-import Text from '@components/Text/Text';
+import Text from '@components/Text/Paragraph';
 import fonts from '@utils/fonts';
 
 export default function OnboardingScreen() {
