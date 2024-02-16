@@ -40,7 +40,10 @@ export default function PreferredCategories() {
       <View style={styles.inputContainer}>
         <PreferencesTag tags={categoryTags} />
       </View>
-      <Button title="Próximo" onPress={handleNavigation} />
+      <View style={styles.buttonContainer}>
+        <Button title="Próximo" onPress={handleNavigation} />
+        <Button title="Voltar" light onPress={handleNavigation} />
+      </View>
     </Screen>
   );
 }
@@ -57,5 +60,8 @@ const styles = StyleSheet.create({
   inputContainer: {
     flex: 4,
     gap: 20,
+  },
+  buttonContainer: {
+    rowGap: 15,
   },
 });

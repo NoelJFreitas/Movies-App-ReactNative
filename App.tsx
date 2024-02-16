@@ -1,9 +1,8 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 
-// import OnboardingScreen from '@features/authentication/screens/OnboardingScreen/OnboardingScreen';
-// import SignUpScreen from '@features/authentication/screens/SignUpScreen/SignUpScreen';
-import PreferredCategories from '@features/authentication/screens/PreferredCategories/PreferredCategories';
+import Routes from '@src/routes';
 
 export default function App() {
-  return <PreferredCategories />;
+  return <Routes />;
 }
