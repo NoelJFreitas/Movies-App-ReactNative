@@ -34,7 +34,7 @@ const SignUpTextInput = forwardRef<SignUpTextInput, Props>(
         ]}>
         {value && <Text style={styles.title}>{name}</Text>}
         <TextInput
-          value={value}
+          defaultValue={value}
           placeholderTextColor={colors.grey}
           style={commonStyles.text}
           {...props}

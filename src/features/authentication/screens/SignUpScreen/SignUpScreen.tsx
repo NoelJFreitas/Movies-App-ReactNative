@@ -1,23 +1,26 @@
+import React, {useRef} from 'react';
+import {Alert, Dimensions, StyleSheet, View} from 'react-native';
+import {AuthRoutes} from '@features/authentication/routes';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+
+import {useAuth} from '@features/authentication/providers/authContext';
+
 import Screen from '@components/Screen/Screen';
 import Paragraph from '@components/Text/Paragraph';
 import Title from '@components/Text/Title';
 import Button from '@features/authentication/components/Button/Button';
 import SignUpTextInput from '@features/authentication/components/TextInput/SignUpTextInput';
-import React, {useRef, useState} from 'react';
-import {Alert, Dimensions, StyleSheet, View} from 'react-native';
+import Counter from '@features/authentication/components/Counter/Counter';
 
 const WIDTH = Dimensions.get('screen').width;
 
-export default function SignUpScreen() {
-  const inputs = useRef<SignUpTextInput[]>([]);
-  const [user, setUser] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    age: '',
-  });
+type Props = NativeStackScreenProps<AuthRoutes, 'SignUp'>;
 
-  function handleNavigation() {
+export default function SignUpScreen({navigation}: Props) {
+  const {user, setUser} = useAuth();
+  const inputs = useRef<SignUpTextInput[]>([]);
+
+  function onSubmit() {
     let invalid = false;
     inputs.current.forEach(e => {
       if (e.value === '') {
@@ -32,6 +35,13 @@ export default function SignUpScreen() {
       Alert.alert('atenção', 'Preencha todos os campos');
       return;
     }
+
+    if (user.age === 0) {
+      Alert.alert('atenção', 'Adicione uma idade valida');
+      return;
+    }
+
+    navigation.navigate('Categories');
   }
 
   return (
@@ -65,14 +75,15 @@ export default function SignUpScreen() {
           name="Email"
           ref={el => (inputs.current[2] = el!)}
         />
-        <SignUpTextInput
+        <Counter
           value={user.age}
-          onChangeText={t => setUser({...user, age: t})}
           placeholder="Sua idade"
-          name="Idade"
-          ref={el => (inputs.current[3] = el!)}
+          min={12}
+          max={100}
+          onChange={v => setUser({...user, age: v})}
+          // ref={el => (inputs.current[3] = el!)}
         />
-        <Button title="Próximo" onPress={handleNavigation} />
+        <Button title="Próximo" onPress={onSubmit} />
       </View>
     </Screen>
   );
