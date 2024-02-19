@@ -49,7 +49,7 @@ export default function SignUpScreen({navigation}: Props) {
       <View style={styles.textContainer}>
         <Title style={styles.title}>Deixe-nos conhecer um pouco de você</Title>
         <Paragraph>
-          Precisamos de algumas informações para te oferecer o melhor
+          Precisamos de algumas informações para te oferecer a melhor
           experiencia possível
         </Paragraph>
       </View>

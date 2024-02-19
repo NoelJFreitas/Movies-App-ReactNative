@@ -11,7 +11,7 @@ interface Props {
 interface Authentication {
   user: User;
   setUser: React.Dispatch<React.SetStateAction<User>>;
-  onSubmitSingUp: () => void;
+  onFinishSingUp: () => Promise<void>;
   onVerifyStorageUser: () => Promise<boolean>;
 }
 
@@ -29,7 +29,7 @@ export const AuthenticationProvider: React.FC<Props> = ({children}: Props) => {
     preferredCategories: [],
   });
 
-  async function onSubmitSingUp() {
+  async function onFinishSingUp() {
     await storeUserData(user);
     dispatch(setUserData(user));
     dispatch(setLoggedState(true));
@@ -47,7 +47,7 @@ export const AuthenticationProvider: React.FC<Props> = ({children}: Props) => {
 
   return (
     <AuthenticationContext.Provider
-      value={{user, setUser, onSubmitSingUp, onVerifyStorageUser}}>
+      value={{user, setUser, onFinishSingUp, onVerifyStorageUser}}>
       {children}
     </AuthenticationContext.Provider>
   );

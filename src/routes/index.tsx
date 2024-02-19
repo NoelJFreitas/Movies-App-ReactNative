@@ -8,7 +8,7 @@ export default function Routes() {
   const {isLoggedIn} = useSelector(({user}) => user);
   return (
     <NavigationContainer>
-      {false ? <HomeScreen /> : <AuthRoutes />}
+      {isLoggedIn ? <HomeScreen /> : <AuthRoutes />}
     </NavigationContainer>
   );
 }

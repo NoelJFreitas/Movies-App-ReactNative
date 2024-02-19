@@ -6,8 +6,15 @@ import DoneSvg from '@assets/svg/completed.svg';
 import Title from '@components/Text/Title';
 import Paragraph from '@components/Text/Paragraph';
 import Button from '@features/authentication/components/Button/Button';
+import {useAuth} from '@features/authentication/providers/authContext';
 
 export default function CongratulationsScreen() {
+  const {onFinishSingUp} = useAuth();
+
+  async function onSubmit() {
+    await onFinishSingUp();
+  }
+
   return (
     <Screen>
       <View style={styles.svgContainer}>
@@ -20,7 +27,7 @@ export default function CongratulationsScreen() {
           o melhor conteúdo com base nas suas preferências. Obrigado por se
           juntar à nossa comunidade!
         </Paragraph>
-        <Button title="Continuar" onPress={() => {}} />
+        <Button title="Continuar" onPress={onSubmit} />
       </View>
     </Screen>
   );

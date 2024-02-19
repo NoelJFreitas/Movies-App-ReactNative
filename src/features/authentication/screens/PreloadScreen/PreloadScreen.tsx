@@ -20,7 +20,7 @@ export default function PreloadScreen({navigation}: Props) {
           navigation.navigate('Onboarding');
         }
       });
-    }, 1000);
+    }, 2000);
   });
   return (
     <View style={styles.container}>

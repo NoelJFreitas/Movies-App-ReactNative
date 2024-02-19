@@ -15,14 +15,14 @@ import categoryTags from '@features/authentication/utils/categoryTags';
 type Props = NativeStackScreenProps<AuthRoutes, 'Categories'>;
 
 export default function PreferredCategories({navigation}: Props) {
-  const {user, setUser, onSubmitSingUp} = useAuth();
+  const {user, setUser} = useAuth();
 
   function onSubmit() {
     if (!user.preferredCategories.length) {
       Alert.alert('atenção', 'selecione pelo menos uma categoria');
       return;
     }
-    onSubmitSingUp();
+    navigation.navigate('Congratulations');
   }
 
   function onGoBack() {
