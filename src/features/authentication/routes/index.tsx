@@ -5,12 +5,14 @@ import SignUpScreen from '../screens/SignUpScreen/SignUpScreen';
 import PreferredCategories from '../screens/PreferredCategories/PreferredCategories';
 import {AuthenticationProvider} from '../providers/authContext';
 import OnboardingScreen from '../screens/OnboardingScreen/OnboardingScreen';
+import CongratulationsScreen from '../screens/CongratulationsScreen/CongratulationsScreen';
 
 export type AuthRoutes = {
   Onboarding: undefined;
   Preload: undefined;
   SignUp: undefined;
   Categories: undefined;
+  Congratulations: undefined;
 };
 
 const {Navigator, Screen} = createNativeStackNavigator<AuthRoutes>();
@@ -19,12 +21,13 @@ export default function AuthRoutes() {
   return (
     <AuthenticationProvider>
       <Navigator
-        initialRouteName="Preload"
+        initialRouteName="Congratulations"
         screenOptions={{headerShown: false}}>
         <Screen name="Onboarding" component={OnboardingScreen} />
         <Screen name="Preload" component={PreloadScreen} />
         <Screen name="SignUp" component={SignUpScreen} />
         <Screen name="Categories" component={PreferredCategories} />
+        <Screen name="Congratulations" component={CongratulationsScreen} />
       </Navigator>
     </AuthenticationProvider>
   );
