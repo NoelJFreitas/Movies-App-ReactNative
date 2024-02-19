@@ -15,9 +15,8 @@ export default function Title({children, style, ...props}: Props) {
 
 const styles = StyleSheet.create({
   text: {
-    fontFamily: fonts.PoppinsRegular,
+    fontFamily: fonts.latoBold,
     color: colors.black,
-    fontWeight: 'bold',
     fontSize: 16,
   },
 });

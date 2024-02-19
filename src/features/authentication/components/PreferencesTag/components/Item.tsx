@@ -1,6 +1,7 @@
+import Title from '@components/Text/Title';
 import colors from '@utils/colors';
 import React, {useState} from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 
 interface Props {
   name: string;
@@ -26,9 +27,9 @@ export default function Item({name, onSelect, onUnchecked}: Props) {
       style={[styles.container, isSelected && styles.selected]}
       activeOpacity={0.6}
       onPress={handleOnSelect}>
-      <Text style={[styles.text, isSelected && styles.textSelected]}>
+      <Title style={[styles.text, isSelected && styles.textSelected]}>
         {name}
-      </Text>
+      </Title>
     </TouchableOpacity>
   );
 }
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
   },
   text: {
-    fontWeight: '500',
+    fontSize: 13,
   },
   textSelected: {
     color: colors.white,

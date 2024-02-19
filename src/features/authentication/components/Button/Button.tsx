@@ -1,6 +1,7 @@
+import Title from '@components/Text/Title';
 import colors from '@utils/colors';
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 
 interface Props {
   title: string;
@@ -13,7 +14,7 @@ export default function Button({title, onPress, light}: Props) {
     <TouchableOpacity
       style={[styles.container, styles.shadow, light && styles.lightBackground]}
       onPress={onPress}>
-      <Text style={[styles.title, light && styles.titleLight]}>{title}</Text>
+      <Title style={[styles.title, light && styles.titleLight]}>{title}</Title>
     </TouchableOpacity>
   );
 }

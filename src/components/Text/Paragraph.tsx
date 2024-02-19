@@ -15,7 +15,7 @@ export default function Paragraph({children, style, ...props}: Props) {
 
 const styles = StyleSheet.create({
   text: {
-    fontFamily: fonts.PoppinsLight,
+    fontFamily: fonts.latoRegular,
     fontSize: 14,
     color: colors.grey,
   },

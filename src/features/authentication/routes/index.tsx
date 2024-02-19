@@ -21,7 +21,7 @@ export default function AuthRoutes() {
   return (
     <AuthenticationProvider>
       <Navigator
-        initialRouteName="Congratulations"
+        initialRouteName="Categories"
         screenOptions={{headerShown: false}}>
         <Screen name="Onboarding" component={OnboardingScreen} />
         <Screen name="Preload" component={PreloadScreen} />

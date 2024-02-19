@@ -2,28 +2,24 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "src/assets/fonts/Helvetica-Bold.ttf",
-      "sha1": "d064906892c6baf2916d5102910026ba0a4f2664"
+      "path": "src/assets/fonts/Lato-Black.ttf",
+      "sha1": "a001eb827743636e04f8efa7d4aeedf0541c46ac"
     },
     {
-      "path": "src/assets/fonts/Helvetica.ttf",
-      "sha1": "53cb59bdb997dd39dc70b95d50133583e66ebdcb"
+      "path": "src/assets/fonts/Lato-Bold.ttf",
+      "sha1": "542498221d97bee5bdbccf86ee8890bf8e8005c9"
     },
     {
-      "path": "src/assets/fonts/Poppins-Bold.ttf",
-      "sha1": "875cf0cecd647bcf22e79d633d868c1b1ec98dfa"
+      "path": "src/assets/fonts/Lato-Light.ttf",
+      "sha1": "ad0d178564445a535b15d417f5b18019923d3bab"
     },
     {
-      "path": "src/assets/fonts/Poppins-Light.ttf",
-      "sha1": "e247a92158e112f8bf7b638c8d95381d66b00dbb"
+      "path": "src/assets/fonts/Lato-Regular.ttf",
+      "sha1": "e923c72eda5e50a87e18ff5c71e9ef4b3b6455a3"
     },
     {
-      "path": "src/assets/fonts/Poppins-Regular.ttf",
-      "sha1": "fdd3002e7d814ee47c1c1b8487c72c6bbb3a2d00"
-    },
-    {
-      "path": "src/assets/fonts/helvetica-Light.ttf",
-      "sha1": "a7d02da118efb487c83136ea82b1d40e19dc019b"
+      "path": "src/assets/fonts/Lato-Thin.ttf",
+      "sha1": "07290446bee3f81ce501a3c3dbfde6097c70ca15"
     }
   ]
 }

@@ -7,8 +7,8 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import Screen from '@components/Screen/Screen';
 import Button from '@features/authentication/components/Button/Button';
 import images from '@utils/images';
-import Text from '@components/Text/Paragraph';
-import fonts from '@utils/fonts';
+import Paragraph from '@components/Text/Paragraph';
+import Title from '@components/Text/Title';
 
 type Props = NativeStackScreenProps<AuthRoutes, 'Onboarding'>;
 
@@ -26,12 +26,12 @@ export default function OnboardingScreen({navigation}: Props) {
           resizeMode="contain"
           resizeMethod="auto"
         />
-        <Text style={styles.title}>Acompanhe suas produções favoritas!</Text>
-        <Text style={styles.paragraph}>
+        <Title style={styles.title}>Acompanhe suas produções favoritas!</Title>
+        <Paragraph style={styles.paragraph}>
           Bem-vindo ao MoviesApp! Descubra, favorite e encontre séries e filmes
           facilmente. Explore sinopses, marque seus favoritos e receba
           recomendações. Mergulhe em um universo de histórias conosco!
-        </Text>
+        </Paragraph>
       </View>
       <View style={styles.buttonContainer}>
         <Button title="Primeiros passos!" onPress={onSubmit} />
@@ -60,10 +60,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
-    color: 'black',
     textAlign: 'center',
-    fontFamily: fonts.HelveticaBold,
   },
   paragraph: {
     textAlign: 'center',
