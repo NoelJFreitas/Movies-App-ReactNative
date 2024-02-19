@@ -1,31 +1,45 @@
+import React from 'react';
+import {Alert, StyleSheet, View} from 'react-native';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {useAuth} from '@features/authentication/providers/authContext';
+
+import {AuthRoutes} from '@features/authentication/routes';
+
 import Screen from '@components/Screen/Screen';
 import Paragraph from '@components/Text/Paragraph';
 import Title from '@components/Text/Title';
 import Button from '@features/authentication/components/Button/Button';
 import PreferencesTag from '@features/authentication/components/PreferencesTag/PreferencesTag';
-import SignUpTextInput from '@features/authentication/components/TextInput/SignUpTextInput';
 import categoryTags from '@features/authentication/utils/categoryTags';
-import React, {useRef} from 'react';
-import {Alert, StyleSheet, View} from 'react-native';
 
-export default function PreferredCategories() {
-  const inputs = useRef<SignUpTextInput[]>([]);
+type Props = NativeStackScreenProps<AuthRoutes, 'Categories'>;
 
-  function handleNavigation() {
-    let invalid = false;
-    inputs.current.forEach(e => {
-      if (e.value === '') {
-        e.setValidationState(false);
-        invalid = true;
-      } else {
-        e.setValidationState(true);
-      }
-    });
+export default function PreferredCategories({navigation}: Props) {
+  const {user, setUser, onSubmitSingUp} = useAuth();
 
-    if (invalid) {
-      Alert.alert('atenção', 'Preencha todos os campos');
+  function onSubmit() {
+    if (!user.preferredCategories.length) {
+      Alert.alert('atenção', 'selecione pelo menos uma categoria');
       return;
     }
+    onSubmitSingUp();
+  }
+
+  function onGoBack() {
+    navigation.goBack();
+  }
+
+  function onSelect(tag: string) {
+    const preferences = user.preferredCategories;
+    preferences.push(tag);
+    setUser({...user, preferredCategories: preferences});
+  }
+
+  function onUnchecked(tagOnRemove: string) {
+    const preferences = user.preferredCategories.filter(
+      tag => tag !== tagOnRemove,
+    );
+    setUser({...user, preferredCategories: preferences});
   }
 
   return (
@@ -38,11 +52,15 @@ export default function PreferredCategories() {
         </Paragraph>
       </View>
       <View style={styles.inputContainer}>
-        <PreferencesTag tags={categoryTags} />
+        <PreferencesTag
+          tags={categoryTags}
+          onSelect={onSelect}
+          onUnchecked={onUnchecked}
+        />
       </View>
       <View style={styles.buttonContainer}>
-        <Button title="Próximo" onPress={handleNavigation} />
-        <Button title="Voltar" light onPress={handleNavigation} />
+        <Button title="Próximo" onPress={onSubmit} />
+        <Button title="Voltar" light onPress={onGoBack} />
       </View>
     </Screen>
   );
@@ -62,6 +80,7 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   buttonContainer: {
-    rowGap: 15,
+    rowGap: 10,
+    paddingVertical: 10,
   },
 });

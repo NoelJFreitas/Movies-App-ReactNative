@@ -1,13 +1,22 @@
 import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 
+import {AuthRoutes} from '@features/authentication/routes';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+
 import Screen from '@components/Screen/Screen';
 import Button from '@features/authentication/components/Button/Button';
 import images from '@utils/images';
 import Text from '@components/Text/Paragraph';
 import fonts from '@utils/fonts';
 
-export default function OnboardingScreen() {
+type Props = NativeStackScreenProps<AuthRoutes, 'Onboarding'>;
+
+export default function OnboardingScreen({navigation}: Props) {
+  function onSubmit() {
+    navigation.navigate('SignUp');
+  }
+
   return (
     <Screen>
       <View style={styles.imageContainer}>
@@ -25,7 +34,7 @@ export default function OnboardingScreen() {
         </Text>
       </View>
       <View style={styles.buttonContainer}>
-        <Button title="Primeiros passos!" onPress={() => {}} />
+        <Button title="Primeiros passos!" onPress={onSubmit} />
         <Button title="Acessar como anonimo" onPress={() => {}} />
       </View>
     </Screen>

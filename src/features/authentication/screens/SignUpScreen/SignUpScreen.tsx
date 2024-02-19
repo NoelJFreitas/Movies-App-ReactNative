@@ -80,8 +80,7 @@ export default function SignUpScreen({navigation}: Props) {
           placeholder="Sua idade"
           min={12}
           max={100}
-          onChange={v => setUser({...user, age: v})}
-          // ref={el => (inputs.current[3] = el!)}
+          onChange={value => setUser({...user, age: value})}
         />
         <Button title="Próximo" onPress={onSubmit} />
       </View>

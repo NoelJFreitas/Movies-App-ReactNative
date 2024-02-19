@@ -4,17 +4,20 @@ import Item from './components/Item';
 
 interface Props {
   tags: string[];
+  onSelect: (tag: string) => void;
+  onUnchecked: (tag: string) => void;
 }
 
-export default function PreferencesTag({tags}: Props) {
-  function handleOnSelect(name: string) {
-    console.log(`tag name: ${name}`);
-  }
-
+export default function PreferencesTag({tags, onSelect, onUnchecked}: Props) {
   return (
     <View style={styles.container}>
       {tags.map(name => (
-        <Item key={name} name={name} onSelect={handleOnSelect} />
+        <Item
+          key={name}
+          name={name}
+          onSelect={onSelect}
+          onUnchecked={onUnchecked}
+        />
       ))}
     </View>
   );

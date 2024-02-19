@@ -5,14 +5,20 @@ import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 interface Props {
   name: string;
   onSelect: (name: string) => void;
+  onUnchecked: (name: string) => void;
 }
 
-export default function Item({name, onSelect}: Props) {
+export default function Item({name, onSelect, onUnchecked}: Props) {
   const [isSelected, setIsSelected] = useState(false);
 
   function handleOnSelect() {
-    setIsSelected(!isSelected);
-    onSelect(name);
+    if (!isSelected) {
+      setIsSelected(true);
+      onSelect(name);
+      return;
+    }
+    setIsSelected(false);
+    onUnchecked(name);
   }
 
   return (
